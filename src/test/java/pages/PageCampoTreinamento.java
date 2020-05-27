@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
 import java.awt.print.PrinterException;
 import java.io.FileNotFoundException;
@@ -98,7 +99,34 @@ public class PageCampoTreinamento extends BasePage {
         return this;
     }
 
-    public PageCampoTreinamento clickComboBoxAndAssertClickScholarity(){
+    public PageCampoTreinamento clickComboBoxAndAssertClickScholarity(String scholarity){
+        Select combo = new Select(options_Scholarity);
+
+        if(scholarity.equalsIgnoreCase("Primeiro Grau Imcompleto")){
+            combo.selectByIndex(0);
+            esperarTempoFixado(2000);
+        }else if(scholarity.equalsIgnoreCase("Primeiro Grau Completo")){
+            combo.selectByIndex(1);
+            esperarTempoFixado(2000);
+        }else if(scholarity.equalsIgnoreCase("Segundo Grau Incompleto")){
+            combo.selectByIndex(2);
+            esperarTempoFixado(2000);
+        }else if(scholarity.equalsIgnoreCase("Segundo Grau Completo")){
+            combo.selectByIndex(3);
+            esperarTempoFixado(2000);
+        }else if(scholarity.equalsIgnoreCase("Superior")){
+            combo.selectByIndex(4);
+            esperarTempoFixado(2000);
+        }else if(scholarity.equalsIgnoreCase("Especializacao")){
+            combo.selectByIndex(5);
+            esperarTempoFixado(2000);
+        }else if(scholarity.equalsIgnoreCase("Mestrado")){
+            combo.selectByIndex(6);
+            esperarTempoFixado(2000);
+        }else if(scholarity.equalsIgnoreCase("Doutorado")){
+            combo.selectByIndex(7);
+            esperarTempoFixado(2000);
+        }
 
         return this;
     }

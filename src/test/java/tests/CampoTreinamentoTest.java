@@ -2,6 +2,7 @@ package tests;
 
 import java.util.List;
 
+import com.gargoylesoftware.htmlunit.Page;
 import config.BasePage;
 import config.BaseTest;
 import org.junit.Assert;
@@ -72,29 +73,57 @@ public class CampoTreinamentoTest extends BaseTest {
 				clickCheckBoxAndAssertClickEat("Vegetarian");
 
 	}
-	
+
 	@Test
-	public void deveInteragirComCombo() {
-		WebDriver driver = new FirefoxDriver();
-		driver.manage().window().setSize(new Dimension(1200, 765));
-		driver.get("file:///"+System.getProperty("user.dir") + "/src/main/resources/componentes.html");
-		
-		//Procurando e intereagindo com o elemento.
-		//WebElement é o objeto padrão que o selenium retorna quando buscamos um elemento
-		WebElement element =  driver.findElement(By.id("elementosForm:escolaridade"));
-		//Criando um Select
-		Select combo = 	new Select(element);
-		//combo.selectByIndex(2);
-		//combo.selectByValue("superior");
-		combo.selectByVisibleText("Mestrado");
-		
-		//Verificar valor selecionado
-		Assert.assertEquals("Mestrado", combo.getFirstSelectedOption().getText());
-		
-		driver.quit();
-		
-		}
+	public void interactingComboBoxShcolarityOptionOne(){
+		new PageCampoTreinamento(driver).
+				clickComboBoxAndAssertClickScholarity("Primeiro Grau Incompleto");
+	}
+
+	@Test
+	public void interactingComboBoxShcolarityOptionTwo(){
+		new PageCampoTreinamento(driver).
+				clickComboBoxAndAssertClickScholarity("Primeiro Grau Completo");
+	}
+
+	@Test
+	public void interactingComboBoxShcolarityOptionThree(){
+		new PageCampoTreinamento(driver).
+				clickComboBoxAndAssertClickScholarity("Segundo Grau Incompleto");
+	}
+
+	@Test
+	public void interactingComboBoxShcolarityOptionFour(){
+		new PageCampoTreinamento(driver).
+				clickComboBoxAndAssertClickScholarity("Segundo Grau Completo");
+	}
+
+	@Test
+	public void interactingComboBoxShcolarityOptionFive(){
+		new PageCampoTreinamento(driver).
+				clickComboBoxAndAssertClickScholarity("Superior");
+	}
+
+	@Test
+	public void interactingComboBoxShcolarityOptionSix(){
+		new PageCampoTreinamento(driver).
+				clickComboBoxAndAssertClickScholarity("Especialização");
+	}
+
+	@Test
+	public void interactingComboBoxShcolarityOptionSeven(){
+		new PageCampoTreinamento(driver).
+				clickComboBoxAndAssertClickScholarity("Mestrado");
+	}
+
+	@Test
+	public void interactingComboBoxShcolarityOptionEight(){
+		new PageCampoTreinamento(driver).
+				clickComboBoxAndAssertClickScholarity("Doutorado");
+	}
 	
+
+
 	@Test
 	public void deveVerificarValoresCombo() {
 		WebDriver driver = new FirefoxDriver();

@@ -14,7 +14,7 @@ public class BaseTest {
     @Before
     public void before(){
 
-        System.setProperty("webdriver.chrome.driver", "/home/qa/projetos/SeleniumWebDriver/CursoSelenium/src/test/resources/driver/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "/home/qa/projetos/CursoSelenium/src/test/resources/driver/chromedriver");
         driver = new ChromeDriver();
         driver.get("file:///"+System.getProperty("user.dir") + "/src/test/resources/componentes.html");
         driver.manage().window().maximize();
