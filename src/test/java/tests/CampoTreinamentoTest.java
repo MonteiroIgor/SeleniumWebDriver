@@ -135,4 +135,22 @@ public class CampoTreinamentoTest extends BaseTest {
 				clickAndAssertLinkVoltar();
 	}
 
+	@Test
+	public void clickButtonAlertAndAssertAlerta(){
+		new PageCampoTreinamento(driver).
+				clickButtonAndAssertAlert();
+	}
+
+	@Test
+	public void clickButtonConfirmAndAcceptAlert(){
+		new PageCampoTreinamento(driver).
+				clickButtonConfirmAndAcceptAlert();
+	}
+
+	@Test
+	public void clickButtonConfirmAndDismissAlert(){
+		new PageCampoTreinamento(driver).
+				clickButtonConfirmAndDismissAlert();
+	}
+
 }

@@ -2,6 +2,7 @@ package pages;
 
 import config.BasePage;
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -65,6 +66,12 @@ public class PageCampoTreinamento extends BasePage {
 
     @FindBy(id = "resultado")
     public WebElement text_Voltou;
+
+    @FindBy(id = "alert")
+    public WebElement button_Alert;
+
+    @FindBy(id = "confirm")
+    public WebElement button_Confirm;
 
 
 
@@ -264,6 +271,43 @@ public class PageCampoTreinamento extends BasePage {
     public PageCampoTreinamento clickAndAssertLinkVoltar(){
         click(link_Voltar);
         Assert.assertEquals("Voltou!", text_Voltou.getText());
+
+        return this;
+    }
+
+    public PageCampoTreinamento clickButtonAndAssertAlert(){
+        click(button_Alert);
+        Alert alert = driver.switchTo().alert();
+        String texto = alert.getText();
+        Assert.assertEquals("Alert Simples", texto);
+        alert.accept();
+
+        field_name.sendKeys(texto);
+
+        return this;
+    }
+
+    public PageCampoTreinamento clickButtonConfirmAndAcceptAlert(){
+        click(button_Confirm);
+        Alert alert = driver.switchTo().alert();
+        String texto = alert.getText();
+        esperarTempoFixado(5000);
+        alert.accept();
+        Assert.assertEquals("Confirmado", texto);
+
+        field_name.sendKeys(texto);
+
+        return this;
+    }
+
+    public PageCampoTreinamento clickButtonConfirmAndDismissAlert(){
+        click(button_Confirm);
+        Alert alert = driver.switchTo().alert();
+        String texto = alert.getText();
+        Assert.assertEquals("Negado", texto);
+        alert.dismiss();
+
+        field_name.sendKeys(texto);
 
         return this;
     }
